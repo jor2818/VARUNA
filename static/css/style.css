@@ -1,0 +1,422 @@
+/* ==========================================================================
+   VARUNA Traffic Analytics - Cal.com Design System Specification (DESIGN.md)
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --color-primary: #111111;
+  --color-primary-active: #242424;
+  --color-primary-disabled: #e5e7eb;
+  --color-ink: #111111;
+  --color-body: #374151;
+  --color-muted: #6b7280;
+  --color-muted-soft: #898989;
+  --color-hairline: #e5e7eb;
+  --color-hairline-soft: #f3f4f6;
+  --color-canvas: #ffffff;
+  --color-surface-soft: #f8f9fa;
+  --color-surface-card: #f5f5f5;
+  --color-surface-strong: #e5e7eb;
+  --color-surface-dark: #101010;
+  --color-surface-dark-elevated: #1a1a1a;
+  --color-on-primary: #ffffff;
+  --color-on-dark: #ffffff;
+  --color-on-dark-soft: #a1a1aa;
+  --color-brand-accent: #3b82f6;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Typography Fonts */
+  --font-display: "Cal Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-code: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+}
+
+/* Base resets & typography */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-canvas);
+  color: var(--color-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings with Cal Sans style */
+h1, h2, h3, h4, h5, h6, .font-cal {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.display-xl {
+  font-size: 3.5rem;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.display-lg {
+  font-size: 2.75rem;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.display-md {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.display-sm {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+/* ==========================================================================
+   Top Navigation (top-nav)
+   ========================================================================== */
+.top-nav {
+  background-color: var(--color-canvas);
+  height: 64px;
+  border-bottom: 1px solid var(--color-hairline);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-ink) !important;
+  letter-spacing: -0.5px;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-body) !important;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-ink) !important;
+}
+
+/* ==========================================================================
+   Signature Nav-Pill-Group (nav-pill-group)
+   ========================================================================== */
+.nav-pill-group {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-surface-soft);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+  gap: 2px;
+}
+
+.nav-pill-group .pill-btn {
+  border: none;
+  background: transparent;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-pill-group .pill-btn:hover {
+  color: var(--color-ink);
+}
+
+.nav-pill-group .pill-btn.active {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Dark mode nav pill variant (for Hero band) */
+.nav-pill-group-dark {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+}
+
+.nav-pill-group-dark .pill-btn {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-pill-group-dark .pill-btn:hover {
+  color: #ffffff;
+}
+
+.nav-pill-group-dark .pill-btn.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   Buttons (button-primary, button-secondary)
+   ========================================================================== */
+.btn-cal-primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary) !important;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  height: 40px;
+  border: 1px solid var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-cal-primary:hover, .btn-cal-primary:focus {
+  background-color: var(--color-primary-active);
+  border-color: var(--color-primary-active);
+  color: var(--color-on-primary);
+}
+
+.btn-cal-secondary {
+  background-color: var(--color-canvas);
+  color: var(--color-ink) !important;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  height: 40px;
+  border: 1px solid var(--color-hairline);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.btn-cal-secondary:hover {
+  background-color: var(--color-surface-soft);
+  border-color: #cbd5e1;
+  color: var(--color-ink);
+}
+
+/* ==========================================================================
+   Hero Band & Hero App Mockup Card
+   ========================================================================== */
+.hero-band {
+  background-color: var(--color-canvas);
+  padding: 80px 0 64px;
+  border-bottom: 1px solid var(--color-hairline-soft);
+}
+
+.hero-app-mockup-card {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.mockup-header {
+  border-bottom: 1px solid var(--color-hairline-soft);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.mockup-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red { background-color: #ef4444; }
+.dot-yellow { background-color: #f59e0b; }
+.dot-green { background-color: #10b981; }
+
+/* ==========================================================================
+   Cards & Metrics (feature-card, surface-card)
+   ========================================================================== */
+.feature-card, .metric-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover, .metric-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.metric-label {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
+
+.metric-value {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.metric-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-hairline);
+  color: var(--color-ink);
+}
+
+/* Pastels for badges and cards */
+.badge-pill {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-card);
+  color: var(--color-ink);
+  border: 1px solid var(--color-hairline);
+}
+
+.badge-emerald { background-color: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.badge-blue { background-color: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.badge-violet { background-color: #f5f3ff; color: #6d28d9; border-color: #ddd6fe; }
+.badge-orange { background-color: #fff7ed; color: #c2410c; border-color: #ffedd5; }
+
+/* Progress bar */
+.progress {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-hairline-soft);
+}
+.progress-bar {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+}
+
+/* Table styling */
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.custom-table th {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-hairline);
+  padding: 12px 16px;
+  background-color: var(--color-canvas);
+}
+
+.custom-table td {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-hairline-soft);
+  padding: 14px 16px;
+}
+
+/* ==========================================================================
+   Pre-Footer CTA Band (cta-band-light)
+   ========================================================================== */
+.cta-band-light {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  margin-bottom: 48px;
+}
+
+/* ==========================================================================
+   Footer (surface-dark #101010)
+   ========================================================================== */
+.footer {
+  margin-top: auto;
+  background-color: var(--color-surface-dark);
+  color: var(--color-on-dark-soft);
+  padding: 64px 0 40px;
+  border-top: 1px solid #1f1f1f;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-on-dark);
+  letter-spacing: -0.5px;
+}
+
+.footer a {
+  color: var(--color-on-dark-soft);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer a:hover {
+  color: var(--color-on-dark);
+}
+
+/* Pulse animation for live status */
+.pulse-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
